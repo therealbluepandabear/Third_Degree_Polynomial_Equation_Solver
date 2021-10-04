@@ -51,8 +51,8 @@ double solveEquation(double a, double b, double c, double d) {
 
     double frac_vector2_result_pow3 = pow(frac_vector2_result, 3);
 
-    double first_half = -pow(-(frac_vector1_result + sqrt(frac_vector1_result_pow + frac_vector2_result_pow3)), 1.0/3.0);
-    double second_half = -pow(-(frac_vector1_result - sqrt(frac_vector1_result_pow + frac_vector2_result_pow3)), 1.0/3.0);
+    double first_half = std::cbrt(frac_vector1_result + sqrt(frac_vector1_result_pow + frac_vector2_result_pow3));
+    double second_half = std::cbrt(frac_vector1_result - sqrt(frac_vector1_result_pow + frac_vector2_result_pow3));
     double third_half = -(b/3 * a);
 
     double result = first_half + second_half + third_half;
