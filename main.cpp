@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class PolynomialSolver {
+class PolynomialSolver final {
 public:
     static double SolveEquation(double a, double b, double c, double d) {
         array<double, 3> frac_vector1{((pow(-b, 3)) / (27 * pow(a, 3))),
