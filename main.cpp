@@ -6,7 +6,7 @@ using namespace std;
 
 class PolynomialSolver final {
 public:
-    static double SolveEquation(double a, double b, double c, double d) {
+    static double SolveEquation(const double a, const double b, const double c, const double d) {
         array<double, 3> frac_vector1{((pow(-b, 3)) / (27 * pow(a, 3))),
                                     ((b * c) / (6 * pow(a, 2))),
                                     -(d / (2 * a))};
@@ -41,7 +41,7 @@ public:
         }
     }
 
-    static std::pair<double, double> SolveEquation(double a, double b, double c) {
+    static std::pair<double, double> SolveEquation(const double a, const double b, const double c) {
         double positiveRoot = (-b + sqrt(pow(b, 2) - 4 * a * c))/(2 * a);
         double negativeRoot = (-b - sqrt(pow(b, 2) - 4 * a * c))/(2 * a);
 
