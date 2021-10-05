@@ -7,34 +7,34 @@ using namespace std;
 class PolynomialSolver final {
 public:
     static double SolveEquation(const double a, const double b, const double c, const double d) {
-        array<double, 3> frac_vector1{((pow(-b, 3)) / (27 * pow(a, 3))),
-                                    ((b * c) / (6 * pow(a, 2))),
-                                    -(d / (2 * a))};
-        double frac_vector1_result = 0;
+        array<const double, 3> frac_vector1{((pow(-b, 3.0)) / (27.0 * pow(a, 3.0))),
+                                    ((b * c) / (6.0 * pow(a, 2))),
+                                    -(d / (2.0 * a))};
+        double frac_vector1_result = 0.0;
         for (double frac : frac_vector1) {
             frac_vector1_result += frac;
         }
 
-        double frac_vector1_result_pow = pow(frac_vector1_result, 2);
+        double frac_vector1_result_pow = pow(frac_vector1_result, 2.0);
 
-        array<double, 2> frac_vector2 {(c/(3 * a)),
-                                     -((pow(b, 2))/(9 * pow(2, a)))};
+        array<const double, 2> frac_vector2 {(c/(3.0 * a)),
+                                     -((pow(b, 2.0))/(9.0 * pow(2.0, a)))};
 
-        double frac_vector2_result = 0;
+        double frac_vector2_result = 0.0;
         for (double frac : frac_vector2) {
             frac_vector2_result += frac;
         }
 
-        double frac_vector2_result_pow3 = pow(frac_vector2_result, 3);
+        double frac_vector2_result_pow3 = pow(frac_vector2_result, 3.0);
 
         double first_half = std::cbrt(frac_vector1_result + sqrt(frac_vector1_result_pow + frac_vector2_result_pow3));
         double second_half = std::cbrt(frac_vector1_result - sqrt(frac_vector1_result_pow + frac_vector2_result_pow3));
-        double third_half = -(b/3 * a);
+        double third_half = -(b/3.0 * a);
 
         double result = first_half + second_half + third_half;
 
         if (isnan(result)) {
-            return 0;
+            return 0.0;
         }
         else {
             return result;
@@ -42,11 +42,11 @@ public:
     }
 
     static std::pair<double, double> SolveEquation(const double a, const double b, const double c) {
-        double positiveRoot = (-b + sqrt(pow(b, 2) - 4 * a * c))/(2 * a);
-        double negativeRoot = (-b - sqrt(pow(b, 2) - 4 * a * c))/(2 * a);
+        double positiveRoot = (-b + sqrt(pow(b, 2.0) - 4.0 * a * c))/(2.0 * a);
+        double negativeRoot = (-b - sqrt(pow(b, 2.0) - 4.0 * a * c))/(2.0 * a);
 
         if (isnan(positiveRoot) || isnan(negativeRoot)) {
-            return std::make_pair(0, 0);
+            return std::make_pair(0.0, 0.0);
         } else {
             return std::make_pair(positiveRoot, negativeRoot);
         }
