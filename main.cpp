@@ -1,6 +1,5 @@
 #include <iostream>
 #include <valarray>
-#include <vector>
 #include <iomanip>
 
 using namespace std;
@@ -8,7 +7,7 @@ using namespace std;
 class PolynomialSolver {
 public:
     static double SolveEquation(double a, double b, double c, double d) {
-        vector<double> frac_vector1{((pow(-b, 3)) / (27 * pow(a, 3))),
+        array<double, 3> frac_vector1{((pow(-b, 3)) / (27 * pow(a, 3))),
                                     ((b * c) / (6 * pow(a, 2))),
                                     -(d / (2 * a))};
         double frac_vector1_result = 0;
@@ -18,7 +17,7 @@ public:
 
         double frac_vector1_result_pow = pow(frac_vector1_result, 2);
 
-        vector<double> frac_vector2 {(c/(3 * a)),
+        array<double, 2> frac_vector2 {(c/(3 * a)),
                                      -((pow(b, 2))/(9 * pow(2, a)))};
 
         double frac_vector2_result = 0;
